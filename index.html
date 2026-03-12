@@ -871,20 +871,7 @@
       }
     }
 
-    function fileToBase64(file) {
-      return new Promise((resolve) => {
-        if (!file) { resolve(null); return; }
-        const reader = new FileReader();
-        reader.onload = () => resolve({
-          nome_arquivo: file.name,
-          tipo: file.type,
-          base64: reader.result.split(',')[1]
-        });
-        reader.readAsDataURL(file);
-      });
-    }
-
-    async function submitForm() {
+    function submitForm() {
       const form = document.getElementById('applicationForm');
       const f = name => { const el = form.querySelector(`[name="${name}"]`); return el ? el.value.trim() : ''; };
       const sqlEl = form.querySelector('input[name="exp_sql"]:checked');
@@ -894,43 +881,37 @@
       btn.disabled = true;
       btn.textContent = 'Enviando...';
 
-      // Converter arquivos para Base64
-      const curriculoInput = form.querySelector('input[name="curriculo"]');
-      const discInput = form.querySelector('input[name="relatorio_disc"]');
-      const curriculoFile = curriculoInput && curriculoInput.files.length > 0 ? curriculoInput.files[0] : null;
-      const discFile = discInput && discInput.files.length > 0 ? discInput.files[0] : null;
+      const formData = new FormData();
+      formData.append('nome', f('nome'));
+      formData.append('whatsapp', f('whatsapp'));
+      formData.append('email', f('email'));
+      formData.append('linkedin', f('linkedin'));
+      formData.append('verba_mensal', f('verba_mensal'));
+      formData.append('exp_meta_ads', f('exp_meta_ads'));
+      formData.append('exp_google_ads', f('exp_google_ads'));
+      formData.append('exp_tiktok_ads', f('exp_tiktok_ads'));
+      formData.append('nivel_bi', f('nivel_bi'));
+      formData.append('exp_sql', sqlEl ? sqlEl.value : '');
+      formData.append('case_sucesso', f('case_sucesso'));
+      formData.append('disc_d', f('disc_d'));
+      formData.append('disc_i', f('disc_i'));
+      formData.append('disc_s', f('disc_s'));
+      formData.append('disc_c', f('disc_c'));
+      formData.append('pitch', f('pitch'));
+      formData.append('expectativa_salarial', f('expectativa_salarial'));
 
-      const [curriculoB64, discB64] = await Promise.all([
-        fileToBase64(curriculoFile),
-        fileToBase64(discFile)
-      ]);
-
-      const payload = {
-        nome: f('nome'),
-        whatsapp: f('whatsapp'),
-        email: f('email'),
-        linkedin: f('linkedin'),
-        verba_mensal: f('verba_mensal'),
-        exp_meta_ads: f('exp_meta_ads'),
-        exp_google_ads: f('exp_google_ads'),
-        exp_tiktok_ads: f('exp_tiktok_ads'),
-        nivel_bi: f('nivel_bi'),
-        exp_sql: sqlEl ? sqlEl.value : '',
-        case_sucesso: f('case_sucesso'),
-        disc_d: f('disc_d'),
-        disc_i: f('disc_i'),
-        disc_s: f('disc_s'),
-        disc_c: f('disc_c'),
-        pitch: f('pitch'),
-        expectativa_salarial: f('expectativa_salarial'),
-        curriculo: curriculoB64,
-        relatorio_disc: discB64
-      };
+      const curriculo = form.querySelector('input[name="curriculo"]');
+      if (curriculo && curriculo.files.length > 0) {
+        formData.append('curriculo', curriculo.files[0]);
+      }
+      const relatorioDisc = form.querySelector('input[name="relatorio_disc"]');
+      if (relatorioDisc && relatorioDisc.files.length > 0) {
+        formData.append('relatorio_disc', relatorioDisc.files[0]);
+      }
 
       fetch('https://webhook.novohorizontepromotora.com.br/webhook/76ecc480-5105-4e49-9ef1-c576e14047d6', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: formData
       })
       .then(() => {
         showSuccess();
