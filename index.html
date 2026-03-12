@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TLZ7BLSP');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaga — Novo Horizonte Promotora</title>
+  <link rel="icon" type="image/webp" href="img/Profile_NHP_Site.webp" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f4f8;
+      color: #1e293b;
+      min-height: 100vh;
+    }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: inherit; }
+    input, select, textarea { font-family: inherit; }
+
+    /* ── Header ──────────────────────────────────────── */
+    .header {
+      background: linear-gradient(135deg, #0B3787 0%, #004BD4 100%);
+      border-bottom: 1px solid rgba(0,75,212,.15);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+    }
+    .header-inner {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .header-logo img {
+      height: 44px;
+      width: auto;
+    }
+
+    /* ── Main Container ──────────────────────────────── */
+    .main {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* ── Left Column — Job Info ───────────────────────── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34,197,94,.1);
+      color: #16a34a;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+    .badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: #16a34a;
+      border-radius: 50%;
+    }
+    .job-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0B3787;
+      margin-bottom: .75rem;
+      line-height: 1.2;
+    }
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: .85rem;
+      color: #475569;
+      margin-bottom: 1.5rem;
+    }
+    .job-meta span { display: flex; align-items: center; gap: 5px; }
+    .job-desc {
+      font-size: .95rem;
+      line-height: 1.7;
+      color: #334155;
+      margin-bottom: 2rem;
+    }
+
+    /* Accordion */
+    .accordion {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,.05);
+    }
+    .accordion-item { border-bottom: 1px solid #e2e8f0; }
+    .accordion-item:last-child { border-bottom: none; }
+    .accordion-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      color: #0B3787;
+      font-size: .95rem;
+      font-weight: 600;
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background .2s;
+    }
+    .accordion-btn:hover { background: rgba(0,75,212,.04); }
+    .accordion-btn .arrow {
+      transition: transform .3s;
+      font-size: .75rem;
+      color: #004BD4;
+    }
+    .accordion-btn.active .arrow { transform: rotate(180deg); }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+    }
+    .accordion-content-inner {
+      padding: 0 1.25rem 1.25rem;
+      font-size: .88rem;
+      line-height: 1.75;
+      color: #475569;
+    }
+    .accordion-content-inner ul {
+      padding-left: 1.2rem;
+    }
+    .accordion-content-inner li {
+      margin-bottom: .35rem;
+    }
+
+    /* ── Right Column — Form ─────────────────────────── */
+    .form-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,.05);
+    }
+    .form-card h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #0B3787;
+      margin-bottom: .25rem;
+    }
+    .form-card .subtitle {
+      font-size: .85rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Steps indicator */
+    .steps-bar {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: 1.75rem;
+    }
+    .step-label {
+      font-size: .75rem;
+      font-weight: 600;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .step-label.active { color: #004BD4; }
+    .step-name {
+      font-size: .8rem;
+      font-weight: 600;
+      color: #0B3787;
+      margin-left: auto;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    /* Progress dots */
+    .progress-dots {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 1.75rem;
+    }
+    .progress-dot {
+      flex: 1;
+      height: 4px;
+      border-radius: 4px;
+      background: #e2e8f0;
+      transition: background .3s;
+    }
+    .progress-dot.filled { background: #004BD4; }
+
+    /* Form fields */
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      font-size: .82rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: .4rem;
+    }
+    .form-group label .optional {
+      font-weight: 400;
+      color: #94a3b8;
+      font-size: .78rem;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="url"],
+    .form-group input[type="number"],
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: .7rem 1rem;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      color: #1e293b;
+      font-size: .9rem;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #94a3b8; }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: #004BD4; }
+    .form-group select option { background: #fff; color: #1e293b; }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+
+    /* Radio buttons */
+    .radio-group {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: .3rem;
+    }
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .88rem;
+      font-weight: 500;
+      color: #334155;
+      cursor: pointer;
+    }
+    .radio-label input[type="radio"] {
+      accent-color: #004BD4;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    /* Field hint */
+    .field-hint {
+      font-size: .8rem;
+      color: #94a3b8;
+      margin-bottom: .6rem;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    /* Instruction box (Step 4) */
+    .instruction-box {
+      background: rgba(0,75,212,.06);
+      border: 1px solid rgba(0,75,212,.18);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      font-size: .88rem;
+      line-height: 1.6;
+      color: #334155;
+    }
+    .instruction-box strong { color: #0B3787; }
+    .disc-link {
+      color: #004BD4;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .disc-link:hover { color: #0B3787; }
+
+    /* DISC grid */
+    .disc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: .75rem;
+      margin-bottom: 1.25rem;
+    }
+    .disc-field label {
+      display: block;
+      font-size: .75rem;
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: .35rem;
+    }
+    .disc-input-wrap {
+      display: flex;
+      align-items: center;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .disc-input-wrap input {
+      flex: 1;
+      border: none !important;
+      background: transparent !important;
+      padding: .6rem .75rem;
+      font-size: .9rem;
+      color: #1e293b;
+      outline: none;
+      min-width: 0;
+    }
+    .disc-input-wrap input:focus { border: none !important; }
+    .disc-suffix {
+      padding: 0 .65rem 0 0;
+      font-size: .88rem;
+      color: #94a3b8;
+      font-weight: 500;
+    }
+
+    /* Pitch hint link */
+    .pitch-hint {
+      display: inline-block;
+      margin-top: .4rem;
+      font-size: .82rem;
+      color: #e74c3c;
+      cursor: default;
+    }
+
+    /* Submit button green */
+    .btn-submit {
+      background: #16a34a;
+      border: none;
+      color: #fff;
+      padding: .65rem 2rem;
+      border-radius: 10px;
+      font-size: .88rem;
+      font-weight: 600;
+      margin-left: auto;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-submit:hover { background: #15803d; }
+
+    /* Validation error styles */
+    .form-group.error input,
+    .form-group.error select,
+    .form-group.error textarea { border-color: #dc2626; }
+    .disc-field.error .disc-input-wrap { border-color: #dc2626; }
+    .error-msg {
+      font-size: .75rem;
+      color: #dc2626;
+      margin-top: .25rem;
+      display: none;
+    }
+    .form-group.error .error-msg,
+    .disc-field.error .error-msg { display: block; }
+    .radio-group-wrap.error .error-msg { display: block; }
+
+    /* File upload */
+    .file-upload {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .file-upload-btn {
+      background: #f0f4f8;
+      border: 1px solid #cbd5e1;
+      color: #0B3787;
+      padding: .55rem 1.1rem;
+      border-radius: 8px;
+      font-size: .82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background .2s;
+    }
+    .file-upload-btn:hover { background: #e2e8f0; }
+    .file-upload-label {
+      font-size: .82rem;
+      color: #94a3b8;
+    }
+    .file-upload input[type="file"] { display: none; }
+
+    /* Navigation buttons */
+    .form-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.75rem;
+    }
+    .btn-back {
+      background: none;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      padding: .65rem 1.5rem;
+      border-radius: 10px;
+      font-size: .88rem;
+      font-weight: 600;
+      transition: background .2s, color .2s;
+    }
+    .btn-back:hover { background: #f0f4f8; color: #0B3787; }
+    .btn-next {
+      background: #004BD4;
+      border: none;
+      color: #fff;
+      padding: .65rem 2rem;
+      border-radius: 10px;
+      font-size: .88rem;
+      font-weight: 600;
+      margin-left: auto;
+      transition: background .2s;
+    }
+    .btn-next:hover { background: #0B3787; }
+    .btn-next:disabled { opacity: .5; cursor: not-allowed; }
+
+    /* Success message */
+    .success-msg {
+      text-align: center;
+      padding: 2rem 0;
+    }
+    .success-msg .icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .success-msg h3 {
+      font-size: 1.25rem;
+      color: #0B3787;
+      margin-bottom: .5rem;
+    }
+    .success-msg p {
+      color: #475569;
+      font-size: .9rem;
+    }
+
+    /* ── Responsive ──────────────────────────────────── */
+    @media (max-width: 860px) {
+      .main {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .job-title { font-size: 1.5rem; }
+      .form-card { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLZ7BLSP"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- ═══ Header ═══ -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="header-logo">
+        <img src="img/Logo_Horizontal_NHP_Branco.webp" alt="Novo Horizonte Promotora" />
+      </a>
+    </div>
+  </header>
+
+  <!-- ═══ Main Content ═══ -->
+  <main class="main">
+
+    <!-- ── Left: Job Details ── -->
+    <section class="job-info">
+      <div class="badge">Vaga Aberta</div>
+      <h1 class="job-title">Gestor de Performance</h1>
+      <div class="job-meta">
+        <span>📍 Presencial</span>
+        <span>💼 CLT</span>
+      </div>
+      <p class="job-desc">
+        A Novo Horizonte Promotora está em crescimento e buscamos um profissional para liderar
+        nossas operações de tráfego pago e análise de performance. Se você é orientado a dados,
+        tem experiência sólida com mídia paga e gosta de otimizar resultados continuamente,
+        essa vaga pode ser para você.
+      </p>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Responsabilidades
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <ul>
+                <li>Gestão de Tráfego Multicanal: Planejamento, execução e otimização de campanhas no Meta Ads, Google Ads e TikTok Ads</li>
+                <li>Análise de Dados: Criação e manutenção de dashboards avançados utilizando Power BI ou Metabase para acompanhamento de métricas (CAC, ROAS, LTV)</li>
+                <li>Otimização de Funil: Colaborar com o time de Growth para identificar gargalos na jornada do lead (do clique à conversão)</li>
+                <li>Testes A/B: Implementar rotina de testes de criativos e copy focada em performance</li>
+                <li>Reporting: Gerar relatórios semanais com insights claros e próximos passos acionáveis</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Requisitos
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <ul>
+                <li>Experiência sólida com Meta Ads e Google Ads (investimentos expressivos)</li>
+                <li>Domínio de ferramentas de BI (Power BI ou Metabase)</li>
+                <li>Foco em resultados/performance (não apenas "likes")</li>
+                <li>Boa comunicação para explicar dados complexos de forma simples</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Diferenciais
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <ul>
+                <li>Experiência com n8n ou automações de marketing</li>
+                <li>Conhecimento em SQL para extração de dados no Metabase</li>
+                <li>Conhecimento em atribuição e rastreamento (GTM, Conversions API)</li>
+                <li>Experiência prévia em agências de performance ou SaaS</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-btn" onclick="toggleAccordion(this)">
+            Por que a Novo Horizonte?
+            <span class="arrow">▼</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <ul>
+                <li>Empresa em pleno crescimento com metas ambiciosas</li>
+                <li>Ambiente dinâmico e colaborativo</li>
+                <li>Liberdade com responsabilidade</li>
+                <li>Oportunidade de impacto real nos resultados</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Right: Application Form ── -->
+    <section class="form-card">
+      <h2>Inscreva-se agora</h2>
+      <p class="subtitle">Preencha o formulário abaixo para iniciar o processo.</p>
+
+      <!-- Progress -->
+      <div class="steps-bar">
+        <span class="step-label active" id="stepCounter">PASSO 1 DE 5</span>
+        <span class="step-name" id="stepName">IDENTIFICAÇÃO</span>
+      </div>
+      <div class="progress-dots">
+        <div class="progress-dot filled"></div>
+        <div class="progress-dot"></div>
+        <div class="progress-dot"></div>
+        <div class="progress-dot"></div>
+        <div class="progress-dot"></div>
+      </div>
+
+      <form id="applicationForm" onsubmit="return false;">
+        <!-- ===== STEP 1 — Identificação ===== -->
+        <div class="form-step" data-step="1">
+          <div class="form-group">
+            <label>Nome Completo</label>
+            <input type="text" name="nome" placeholder="Seu nome" required />
+            <span class="error-msg">Preencha seu nome completo</span>
+          </div>
+          <div class="form-group">
+            <label>WhatsApp (com DDD)</label>
+            <input type="tel" name="whatsapp" placeholder="(11) 99999-9999" required />
+            <span class="error-msg">Informe seu WhatsApp com DDD</span>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="seu@email.com" required />
+            <span class="error-msg">Informe um e-mail válido</span>
+          </div>
+          <div class="form-group">
+            <label>LinkedIn (URL) <span class="optional">(Opcional)</span></label>
+            <input type="url" name="linkedin" placeholder="linkedin.com/in/voce" />
+          </div>
+          <div class="form-group">
+            <label>Currículo <span class="optional">(Opcional)</span></label>
+            <div class="file-upload">
+              <label class="file-upload-btn" for="curriculo">Escolher arquivo</label>
+              <span class="file-upload-label" id="fileName">Nenhum arquivo escolhido</span>
+              <input type="file" id="curriculo" name="curriculo" accept=".pdf,.doc,.docx" onchange="updateFileName(this)" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== STEP 2 — Triagem Técnica ===== -->
+        <div class="form-step" data-step="2" style="display:none;">
+          <div class="form-group">
+            <label>Qual o maior volume de verba mensal que você já gerenciou?</label>
+            <select name="verba_mensal">
+              <option value="">Selecione...</option>
+              <option value="menos-10k">Menos de R$ 10k</option>
+              <option value="10k-50k">R$ 10k - R$ 50k</option>
+              <option value="50k-100k">R$ 50k - R$ 100k</option>
+              <option value="100k-500k">R$ 100k - R$ 500k</option>
+              <option value="mais-500k">Mais de R$ 500k</option>
+            </select>
+            <span class="error-msg">Selecione o volume de verba</span>
+          </div>
+
+          <div class="form-group">
+            <label>Avalie sua experiência com cada canal (1 = Básico, 5 = Avançado):</label>
+          </div>
+
+          <div class="form-group">
+            <label>Meta Ads</label>
+            <select name="exp_meta_ads">
+              <option value="">Selecione...</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <span class="error-msg">Selecione seu nível</span>
+          </div>
+
+          <div class="form-group">
+            <label>Google Ads</label>
+            <select name="exp_google_ads">
+              <option value="">Selecione...</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <span class="error-msg">Selecione seu nível</span>
+          </div>
+
+          <div class="form-group">
+            <label>TikTok Ads</label>
+            <select name="exp_tiktok_ads">
+              <option value="">Selecione...</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <span class="error-msg">Selecione seu nível</span>
+          </div>
+
+          <div class="form-group">
+            <label>Qual seu nível de domínio em Power BI e Metabase?</label>
+            <select name="nivel_bi">
+              <option value="">Selecione...</option>
+              <option value="nenhum">Nenhum</option>
+              <option value="basico">Básico</option>
+              <option value="intermediario">Intermediário</option>
+              <option value="avancado">Avançado</option>
+            </select>
+            <span class="error-msg">Selecione seu nível</span>
+          </div>
+
+          <div class="form-group">
+            <label>Você tem experiência com consultas SQL?</label>
+            <div class="radio-group-wrap">
+              <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="exp_sql" value="sim" /> Sim</label>
+                <label class="radio-label"><input type="radio" name="exp_sql" value="nao" /> Não</label>
+              </div>
+              <span class="error-msg">Selecione uma opção</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== STEP 3 — Case de Sucesso ===== -->
+        <div class="form-step" data-step="3" style="display:none;">
+          <div class="form-group">
+            <label>Descreva brevemente um resultado real que você gerou e como chegou lá</label>
+            <p class="field-hint">Exemplo: "Reduzi o CAC em 40% no Google Ads através de reestruturação de campanhas e testes de audiência"</p>
+            <textarea name="case_sucesso" placeholder="Descreva seu case de sucesso..." style="min-height:140px;"></textarea>
+            <span class="error-msg">Descreva seu case de sucesso</span>
+          </div>
+        </div>
+
+        <!-- ===== STEP 4 — Perfil Comportamental ===== -->
+        <div class="form-step" data-step="4" style="display:none;">
+          <div class="instruction-box">
+            <strong>Instrução:</strong><br />
+            Faça o teste no link abaixo (se ainda não fez) e preencha os resultados.<br />
+            <a href="https://www.mrcoach.com.br/teste-perfil-comportamental-disc.php" target="_blank" rel="noopener noreferrer" class="disc-link">Abrir Teste DISC 🔗</a>
+          </div>
+
+          <div class="form-group">
+            <label>Preencha as porcentagens do seu resultado:</label>
+          </div>
+          <div class="disc-grid">
+            <div class="disc-field">
+              <label>Dominância (D)</label>
+              <div class="disc-input-wrap">
+                <input type="number" name="disc_d" placeholder="0" min="0" max="100" />
+                <span class="disc-suffix">%</span>
+              </div>
+              <span class="error-msg">Obrigatório</span>
+            </div>
+            <div class="disc-field">
+              <label>Influência (I)</label>
+              <div class="disc-input-wrap">
+                <input type="number" name="disc_i" placeholder="0" min="0" max="100" />
+                <span class="disc-suffix">%</span>
+              </div>
+              <span class="error-msg">Obrigatório</span>
+            </div>
+            <div class="disc-field">
+              <label>Estabilidade (S)</label>
+              <div class="disc-input-wrap">
+                <input type="number" name="disc_s" placeholder="0" min="0" max="100" />
+                <span class="disc-suffix">%</span>
+              </div>
+              <span class="error-msg">Obrigatório</span>
+            </div>
+            <div class="disc-field">
+              <label>Conformidade (C)</label>
+              <div class="disc-input-wrap">
+                <input type="number" name="disc_c" placeholder="0" min="0" max="100" />
+                <span class="disc-suffix">%</span>
+              </div>
+              <span class="error-msg">Obrigatório</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Anexar Relatório (PDF ou Imagem)</label>
+            <div class="file-upload">
+              <label class="file-upload-btn" for="relatorio_disc">Escolher arquivo</label>
+              <span class="file-upload-label" id="fileNameDisc">Nenhum arquivo escolhido</span>
+              <input type="file" id="relatorio_disc" name="relatorio_disc" accept=".pdf,.png,.jpg,.jpeg,.webp" onchange="updateFileNameDisc(this)" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== STEP 5 — Pitch ===== -->
+        <div class="form-step" data-step="5" style="display:none;">
+          <div class="form-group">
+            <label>Por que você é a pessoa certa para este desafio na Novo Horizonte?</label>
+            <textarea name="pitch" placeholder="Fale sobre como sua experiência se conecta com a vaga..." style="min-height:140px;"></textarea>
+            <span class="error-msg">Preencha seu pitch</span>
+            <a href="#" class="pitch-hint" onclick="return false;">Conte-nos um pouco sobre você</a>
+          </div>
+          <div class="form-group">
+            <label>Expectativa Salarial <span class="optional">(Opcional)</span></label>
+            <input type="text" name="expectativa_salarial" placeholder="Sua expectativa salarial" />
+          </div>
+        </div>
+
+        <!-- ===== SUCCESS ===== -->
+        <div class="form-step" data-step="success" style="display:none;">
+          <div class="success-msg">
+            <div class="icon">✅</div>
+            <h3>Inscrição enviada com sucesso!</h3>
+            <p>Obrigado por se candidatar. Entraremos em contato em breve pelo e-mail ou WhatsApp informado.</p>
+          </div>
+        </div>
+
+        <!-- Nav buttons -->
+        <div class="form-nav" id="formNav">
+          <button type="button" class="btn-back" id="btnBack" onclick="changeStep(-1)" style="visibility:hidden;">Voltar</button>
+          <button type="button" class="btn-next" id="btnNext" onclick="changeStep(1)">Próximo</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- ═══ Scripts ═══ -->
+  <script>
+    /* ── Accordion ── */
+    function toggleAccordion(btn) {
+      const content = btn.nextElementSibling;
+      const isOpen = btn.classList.contains('active');
+
+      // close all
+      document.querySelectorAll('.accordion-btn').forEach(b => {
+        b.classList.remove('active');
+        b.nextElementSibling.style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        btn.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    }
+
+    /* ── Multi-step form ── */
+    const stepNames = ['IDENTIFICAÇÃO', 'TRIAGEM TÉCNICA', 'CASE DE SUCESSO', 'PERFIL COMPORTAMENTAL', 'PITCH'];
+    let currentStep = 1;
+    const totalSteps = 5;
+
+    function changeStep(direction) {
+      // Validate before advancing
+      if (direction === 1 && !validateCurrentStep()) return;
+
+      if (direction === 1 && currentStep === totalSteps) {
+        submitForm();
+        return;
+      }
+
+      currentStep += direction;
+      if (currentStep < 1) currentStep = 1;
+      if (currentStep > totalSteps) currentStep = totalSteps;
+
+      renderStep();
+    }
+
+    function renderStep() {
+      // Hide all steps
+      document.querySelectorAll('.form-step').forEach(s => s.style.display = 'none');
+
+      // Show current
+      const target = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+      if (target) target.style.display = 'block';
+
+      // Update counter
+      document.getElementById('stepCounter').textContent = `PASSO ${currentStep} DE ${totalSteps}`;
+      document.getElementById('stepName').textContent = stepNames[currentStep - 1] || '';
+
+      // Update dots
+      document.querySelectorAll('.progress-dot').forEach((dot, i) => {
+        dot.classList.toggle('filled', i < currentStep);
+      });
+
+      // Nav buttons
+      document.getElementById('btnBack').style.visibility = currentStep === 1 ? 'hidden' : 'visible';
+      document.getElementById('btnNext').textContent = currentStep === totalSteps ? 'Enviar Candidatura' : 'Próximo';
+
+      // Switch button style on last step
+      const btnNext = document.getElementById('btnNext');
+      if (currentStep === totalSteps) {
+        btnNext.classList.remove('btn-next');
+        btnNext.classList.add('btn-submit');
+      } else {
+        btnNext.classList.remove('btn-submit');
+        btnNext.classList.add('btn-next');
+      }
+    }
+
+    function submitForm() {
+      const form = document.getElementById('applicationForm');
+      const f = name => { const el = form.querySelector(`[name="${name}"]`); return el ? el.value.trim() : ''; };
+      const sqlEl = form.querySelector('input[name="exp_sql"]:checked');
+
+      const payload = {
+        nome: f('nome'),
+        whatsapp: f('whatsapp'),
+        email: f('email'),
+        linkedin: f('linkedin'),
+        verba_mensal: f('verba_mensal'),
+        exp_meta_ads: f('exp_meta_ads'),
+        exp_google_ads: f('exp_google_ads'),
+        exp_tiktok_ads: f('exp_tiktok_ads'),
+        nivel_bi: f('nivel_bi'),
+        exp_sql: sqlEl ? sqlEl.value : '',
+        case_sucesso: f('case_sucesso'),
+        disc_d: f('disc_d'),
+        disc_i: f('disc_i'),
+        disc_s: f('disc_s'),
+        disc_c: f('disc_c'),
+        pitch: f('pitch'),
+        expectativa_salarial: f('expectativa_salarial')
+      };
+
+      // Disable button while sending
+      const btn = document.getElementById('btnNext');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      fetch('https://editor.novohorizontepromotora.com.br/webhook-test/76ecc480-5105-4e49-9ef1-c576e14047d6', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        showSuccess();
+      })
+      .catch(() => {
+        showSuccess();
+      });
+    }
+
+    function showSuccess() {
+      document.querySelectorAll('.form-step').forEach(s => s.style.display = 'none');
+      document.querySelector('.form-step[data-step="success"]').style.display = 'block';
+      document.getElementById('formNav').style.display = 'none';
+      document.querySelector('.steps-bar').style.display = 'none';
+      document.querySelector('.progress-dots').style.display = 'none';
+    }
+
+    /* ── Validation ── */
+    function clearErrors(container) {
+      container.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+    }
+
+    function markError(el) {
+      // For disc fields, mark the .disc-field parent
+      const discParent = el.closest('.disc-field');
+      if (discParent) { discParent.classList.add('error'); return; }
+      // For radio groups
+      const radioWrap = el.closest('.radio-group-wrap');
+      if (radioWrap) { radioWrap.classList.add('error'); return; }
+      // For regular form-group
+      const fg = el.closest('.form-group');
+      if (fg) fg.classList.add('error');
+    }
+
+    function validateCurrentStep() {
+      const step = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+      if (!step) return true;
+      clearErrors(step);
+      let valid = true;
+
+      if (currentStep === 1) {
+        // Nome
+        const nome = step.querySelector('input[name="nome"]');
+        if (!nome.value.trim()) { markError(nome); valid = false; }
+        // WhatsApp
+        const wpp = step.querySelector('input[name="whatsapp"]');
+        const wppDigits = wpp.value.replace(/\D/g, '');
+        if (wppDigits.length < 10) { markError(wpp); valid = false; }
+        // Email
+        const email = step.querySelector('input[name="email"]');
+        const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRe.test(email.value.trim())) { markError(email); valid = false; }
+      }
+
+      if (currentStep === 2) {
+        // Verba
+        const verba = step.querySelector('select[name="verba_mensal"]');
+        if (!verba.value) { markError(verba); valid = false; }
+        // Meta Ads
+        const meta = step.querySelector('select[name="exp_meta_ads"]');
+        if (!meta.value) { markError(meta); valid = false; }
+        // Google Ads
+        const google = step.querySelector('select[name="exp_google_ads"]');
+        if (!google.value) { markError(google); valid = false; }
+        // TikTok Ads
+        const tiktok = step.querySelector('select[name="exp_tiktok_ads"]');
+        if (!tiktok.value) { markError(tiktok); valid = false; }
+        // Power BI
+        const bi = step.querySelector('select[name="nivel_bi"]');
+        if (!bi.value) { markError(bi); valid = false; }
+        // SQL
+        const sql = step.querySelector('input[name="exp_sql"]:checked');
+        if (!sql) {
+          const radioWrap = step.querySelector('.radio-group-wrap');
+          radioWrap.classList.add('error');
+          valid = false;
+        }
+      }
+
+      if (currentStep === 3) {
+        const cs = step.querySelector('textarea[name="case_sucesso"]');
+        if (!cs.value.trim()) { markError(cs); valid = false; }
+      }
+
+      if (currentStep === 4) {
+        ['disc_d','disc_i','disc_s','disc_c'].forEach(name => {
+          const inp = step.querySelector(`input[name="${name}"]`);
+          if (!inp.value || inp.value < 0 || inp.value > 100) { markError(inp); valid = false; }
+        });
+      }
+
+      if (currentStep === 5) {
+        const pitch = step.querySelector('textarea[name="pitch"]');
+        if (!pitch.value.trim()) { markError(pitch); valid = false; }
+      }
+
+      return valid;
+    }
+
+    /* ── File name display ── */
+    function updateFileName(input) {
+      const label = document.getElementById('fileName');
+      label.textContent = input.files.length > 0 ? input.files[0].name : 'Nenhum arquivo escolhido';
+    }
+    function updateFileNameDisc(input) {
+      const label = document.getElementById('fileNameDisc');
+      label.textContent = input.files.length > 0 ? input.files[0].name : 'Nenhum arquivo escolhido';
+    }
+
+    /* ── WhatsApp mask ── */
+    document.querySelector('input[name="whatsapp"]').addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 7) {
+        v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+      } else if (v.length > 2) {
+        v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+      } else if (v.length > 0) {
+        v = `(${v}`;
+      }
+      e.target.value = v;
+    });
+  </script>
+
+</body>
+</html>
