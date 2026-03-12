@@ -871,10 +871,39 @@
       }
     }
 
-    function submitForm() {
+    function fileToBase64(file) {
+      return new Promise((resolve) => {
+        if (!file) { resolve(null); return; }
+        const reader = new FileReader();
+        reader.onload = () => resolve({
+          nome_arquivo: file.name,
+          tipo: file.type,
+          base64: reader.result.split(',')[1]
+        });
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function submitForm() {
       const form = document.getElementById('applicationForm');
       const f = name => { const el = form.querySelector(`[name="${name}"]`); return el ? el.value.trim() : ''; };
       const sqlEl = form.querySelector('input[name="exp_sql"]:checked');
+
+      // Disable button while sending
+      const btn = document.getElementById('btnNext');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      // Converter arquivos para Base64
+      const curriculoInput = form.querySelector('input[name="curriculo"]');
+      const discInput = form.querySelector('input[name="relatorio_disc"]');
+      const curriculoFile = curriculoInput && curriculoInput.files.length > 0 ? curriculoInput.files[0] : null;
+      const discFile = discInput && discInput.files.length > 0 ? discInput.files[0] : null;
+
+      const [curriculoB64, discB64] = await Promise.all([
+        fileToBase64(curriculoFile),
+        fileToBase64(discFile)
+      ]);
 
       const payload = {
         nome: f('nome'),
@@ -893,13 +922,10 @@
         disc_s: f('disc_s'),
         disc_c: f('disc_c'),
         pitch: f('pitch'),
-        expectativa_salarial: f('expectativa_salarial')
+        expectativa_salarial: f('expectativa_salarial'),
+        curriculo: curriculoB64,
+        relatorio_disc: discB64
       };
-
-      // Disable button while sending
-      const btn = document.getElementById('btnNext');
-      btn.disabled = true;
-      btn.textContent = 'Enviando...';
 
       fetch('https://webhook.novohorizontepromotora.com.br/webhook/76ecc480-5105-4e49-9ef1-c576e14047d6', {
         method: 'POST',
